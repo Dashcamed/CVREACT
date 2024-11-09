@@ -1,7 +1,23 @@
-import LandingPageContainer from "./components/pages/landingPage/LandingPageContainer";
+import NavbarContainer from "./components/layouts/navbar/NavbarContainer";
+import AboutPage from "./components/pages/about/AboutPage";
+import HomePage from "./components/pages/homeContainer/HomePage";
+import SkillsPage from "./components/pages/skills/SkillsPage";
+import { Routes, BrowserRouter, Route } from "react-router-dom";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
-  return <LandingPageContainer />;
+  return (
+    <LanguageProvider>
+      <BrowserRouter>
+        <NavbarContainer />
+        <Routes>
+          <Route path={"/"} element={<HomePage />}></Route>
+          <Route path={"/About"} element={<AboutPage />}></Route>
+          <Route path={"/Skills"} element={<SkillsPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
+  );
 }
 
 export default App;

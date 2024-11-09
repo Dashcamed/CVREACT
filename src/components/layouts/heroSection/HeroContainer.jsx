@@ -1,30 +1,34 @@
 import { useEffect, useState } from "react";
 import { Hero } from "./Hero";
-import { data } from "../../../data.js";
+import { useLanguage } from "../../../context/LanguageContext.jsx";
+import { db } from "../../../configFirebase.js";
+import { doc, getDoc } from "firebase/firestore";
 
 const HeroContainer = () => {
-  const [heroContent, setHeroContent] = useState([]);
+  const { language } = useLanguage();
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
-    const getHeroContent = new Promise((res, rej) => {
-      let isLoged = true;
-      if (isLoged) {
-        res({ data });
-      } else {
-        rej({ message: "error" });
-      }
-    });
-    getHeroContent
-      .then((response) => {
-        setHeroContent(response.data);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }, []);
-  const heroData = heroContent.find(({ id }) => id === "hero");
+    const fetchContent = async () => {
+      const docRef = doc(db, "pages", "home");
+      const docSnapshot = await getDoc(docRef);
 
-  return <Hero heroContent={heroData || {}} />;
+      if (docSnapshot.exists()) {
+        setContent(docSnapshot.data()[language]);
+      }
+    };
+    fetchContent();
+  }, [language]);
+
+  if (!content) {
+    return (
+      <div>
+        <h1>cargando...</h1>
+      </div>
+    );
+  }
+
+  return <Hero content={content} />;
 };
 
 export default HeroContainer;

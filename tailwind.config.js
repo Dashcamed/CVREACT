@@ -7,6 +7,19 @@ export default {
   plugins: [require("daisyui")],
   daisyui: {
     darkTheme: "synthwave",
-    themes: ["cyberpunk", "synthwave"],
+    themes: [
+      "cyberpunk",
+      "synthwave",
+      {
+        mytheme: {
+          primary: "#00FFFF",
+          secondary: "#FFFF00",
+          accent: "#7F00FF",
+          neutral: "#A1A6B4",
+          "base-100": "#F0F0F5",
+          success: "#FF00FF",
+        },
+      },
+    ],
   },
 };
