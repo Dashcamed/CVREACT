@@ -3,6 +3,7 @@ import { Hero } from "./Hero";
 import { useLanguage } from "../../../context/LanguageContext.jsx";
 import { db } from "../../../configFirebase.js";
 import { doc, getDoc } from "firebase/firestore";
+import LoadingPage from "../../pages/loadingPage/LoadingPage.jsx";
 
 const HeroContainer = () => {
   const { language } = useLanguage();
@@ -21,11 +22,7 @@ const HeroContainer = () => {
   }, [language]);
 
   if (!content) {
-    return (
-      <div>
-        <h1>cargando...</h1>
-      </div>
-    );
+    return <LoadingPage />;
   }
 
   return <Hero content={content} />;

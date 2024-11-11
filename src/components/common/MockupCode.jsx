@@ -1,50 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const MockupCode = () => {
+const MockupCode = ({ content }) => {
   return (
-    <div className="mockup-code">
-      <pre data-prefix="$">
-        <code>npm i Juan Camilo Medina Escamilla</code>
-      </pre>
-      <pre data-prefix=">" className="text-warning">
-        <code>installing...</code>
-      </pre>
-      <pre data-prefix=">" className="text-success">
-        <code>Done!</code>
-      </pre>
-      <pre data-prefix="$">
-        <code>Based in Chile GMT-4 </code>
-        <code>From Colombia</code>
-      </pre>
-      <pre data-prefix="$">
-        <code>Full-Stack Web Developer Student</code>
-      </pre>
-      <pre data-prefix="$" className="text-secondary">
-        <code>
-          <a href="https:/linkedin.com/in/camilomedinadev" target="_blank">
-            User LinkedIn
-          </a>
-        </code>
-      </pre>
-      <pre data-prefix="$" className="text-secondary">
-        <code>
-          <a href="mailto:camilomedina.es@gmail.com">Email to user:</a>
-        </code>
-      </pre>
-      <pre data-prefix="$" className="text-secondary">
-        <code>
-          <a href="https://github.com/Dashcamed" target="_blank">
-            User Github:
-          </a>
-        </code>
-      </pre>
-      <pre data-prefix="$" className="text-primary">
-        <code>
-          <Link to={"/skills"}>User Skills: Click here!</Link>
-        </code>
-      </pre>
-    </div>
+    <>
+      <aside className="bg-base-300 text-white p-6 rounded-lg font-mono">
+        <div className="flex justify-between items-center">
+          <div className="flex space-x-2 text-red-500">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+          <p className="text-sm ml-1">bash</p>
+        </div>
+        <div className="mt-4">
+          <p className="text-primary-content lg:text-2xl">{content.bash}</p>
+          <p className="text-primary-content lg:text-2xl">{content.bash1}</p>
+          <p className="text-primary-content lg:text-2xl">{content.bash2}</p>
+          <p className="text-primary-content lg:text-2xl">{content.bash3}</p>
+          <p className="text-primary-content lg:text-2xl">{content.bash4}</p>
+          <p className="underline text-success lg:text-2xl">
+            <a href={content.github} target="_blank">
+              Github
+            </a>
+          </p>
+          <p className="underline text-success lg:text-2xl">
+            <a href={content.linkedin} target="_blank">
+              LinkedIn
+            </a>
+          </p>
+          <p className="underline text-success lg:text-2xl">
+            <a href={content.mailto}>Email</a>
+          </p>
+        </div>
+      </aside>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ import ThemeController from "../../common/ThemeController";
 import { Link } from "react-router-dom";
 import LanguageController from "../../common/LanguageController";
 
-const Navbar = () => {
+const Navbar = ({ content }) => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -29,13 +29,13 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link to={"/About"}>About</Link>
+              <Link to={"/About"}>{content.nav1}</Link>
             </li>
             <li>
-              <Link to={"Skills"}>Skills</Link>
+              <Link to={"Skills"}>{content.nav2}</Link>
             </li>
             <li>
-              <a>Contact</a>
+              <a>{content.nav3}</a>
             </li>
           </ul>
         </div>
@@ -46,13 +46,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">
           <li>
-            <Link to={"/About"}>About</Link>
+            <Link to={"/About"}>{content.nav1}</Link>
           </li>
           <li>
-            <Link to={"/Skills"}>Skills</Link>
+            <Link to={"/Skills"}>{content.nav2}</Link>
           </li>
           <li>
-            <a>Contact</a>
+            <a>{content.nav3}</a>
           </li>
         </ul>
       </div>
