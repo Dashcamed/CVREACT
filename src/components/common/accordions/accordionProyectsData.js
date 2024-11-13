@@ -4,7 +4,7 @@ export const data2 = [
     name: "La Fika Panadería",
     type: "e-commerce",
     description: "Sitio principal de la panaderia La Fika en Santiago de Chile",
-    url: "https://lafika.netlify.app/",
+    url: "https://lafikapanaderiav1.vercel.app/",
     imgUrl:
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1727211835/Captura_de_pantalla_2024-09-24_175754_ofohb9.png",
   },

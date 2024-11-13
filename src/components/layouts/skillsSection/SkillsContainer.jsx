@@ -1,21 +1,31 @@
 import React from "react";
 import Skills from "./Skills";
-import AvatarPortrait from "../../common/AvatarPortrait";
-import { data } from "../../common/accordionData";
-import { data2 } from "../../common/accordionProyectsData";
+import { useLanguage } from "../../../context/LanguageContext";
+import { useState, useEffect } from "react";
+import { db } from "../../../configFirebase";
+import { doc, getDoc } from "firebase/firestore";
+import LoadingPage from "../../pages/loadingPage/LoadingPage";
 
 const SkillsContainer = () => {
-  return (
-    <div className="h-fit mx-4 flex flex-col mt-10">
-      <div className="flex flex-row justify-center items-center">
-        <h2 className="text-3xl lg:text-5xl px-4">Skills</h2>
-        <AvatarPortrait />
-      </div>
-      <div className="flex flex-col items-center">
-        <Skills data={data} data2={data2} />
-      </div>
-    </div>
-  );
+  const { language } = useLanguage();
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const docRef = doc(db, "pages", "skills");
+      const docSnapshot = await getDoc(docRef);
+
+      if (docSnapshot.exists()) {
+        setContent(docSnapshot.data()[language]);
+      }
+    };
+    fetchContent();
+  }, [language]);
+
+  if (!content) {
+    return <LoadingPage />;
+  }
+  return <Skills content={content} />;
 };
 
 export default SkillsContainer;

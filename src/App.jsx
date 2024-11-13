@@ -1,4 +1,5 @@
 import NavbarContainer from "./components/layouts/navbar/NavbarContainer";
+import FooterContainer from "./components/layouts/footer/FooterContainer";
 import AboutPage from "./components/pages/about/AboutPage";
 import HomePage from "./components/pages/homeContainer/HomePage";
 import SkillsPage from "./components/pages/skills/SkillsPage";
@@ -15,6 +16,7 @@ function App() {
           <Route path={"/About"} element={<AboutPage />}></Route>
           <Route path={"/Skills"} element={<SkillsPage />}></Route>
         </Routes>
+        <FooterContainer />
       </BrowserRouter>
     </LanguageProvider>
   );

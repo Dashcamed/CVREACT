@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Hero = ({ content }) => {
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-gradient-to-b from-base-100 via-base-300 to-base-100 min-h-screen">
       <div className="hero-content flex-col lg:flex-row pb-20 sm:pb-0">
         <img
           src={content.imgUrl}
