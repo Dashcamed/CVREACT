@@ -23,7 +23,7 @@ const AccordionProyects = ({ content }) => {
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">
                   <a href={content.accordion3.url} target="_blank">
-                    Ver sitio
+                    {content.accordion3.button}
                   </a>
                 </button>
               </div>
@@ -51,7 +51,7 @@ const AccordionProyects = ({ content }) => {
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">
                   <a href={content.accordion4.url} target="_blank">
-                    Ver sitio
+                    {content.accordion4.button}
                   </a>
                 </button>
               </div>

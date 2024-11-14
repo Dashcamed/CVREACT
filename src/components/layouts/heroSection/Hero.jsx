@@ -7,7 +7,7 @@ export const Hero = ({ content }) => {
       <div className="hero-content flex-col lg:flex-row pb-20 sm:pb-0">
         <img
           src={content.imgUrl}
-          className="size-56 sm:size-80 lg:size-96 rounded-lg hover:drop-shadow-2xl"
+          className="size-56 sm:size-80 lg:size-96 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
         />
         <div>
           <h1 className="text-center lg:text-start text-4xl lg:text-5xl xl:text-7xl font-bold">
