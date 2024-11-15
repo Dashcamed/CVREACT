@@ -6,7 +6,7 @@ const AccordionProyects = ({ content }) => {
       <div className="collapse collapse-plus bg-inherit mb-3">
         <input type="radio" />
         <input type="checkbox" />
-        <div className="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl xl:text-3xl font-medium">
           {content.accordion3.h1}
         </div>
         <div className="collapse-content flex flex-col">
@@ -34,7 +34,7 @@ const AccordionProyects = ({ content }) => {
       <div className="collapse collapse-plus bg-inherit mb-3">
         <input type="radio" />
         <input type="checkbox" />
-        <div className="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl xl:text-3xl font-medium">
           {content.accordion4.h1}
         </div>
         <div className="collapse-content flex flex-col">
