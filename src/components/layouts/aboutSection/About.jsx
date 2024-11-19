@@ -1,47 +1,63 @@
 import React from "react";
 import AvatarPortrait3 from "../../common/avatars/AvatarPortrait3";
 import MockupCode from "../../common/mockupCode/MockupCode";
+import Modal from "../../common/modal/Modal";
+import AvatarPortrait4 from "../../common/avatars/AvatarPortrait4";
+import AvatarPortrait5 from "../../common/avatars/AvatarPortrait5";
+import { Link } from "react-router-dom";
 
 const About = ({ content }) => {
   return (
-    <section className="h-fit bg-gradient-to-b from-base-100 via-base-300 to-base-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <div className="content-center justify-self-center">
+    <section className="h-fit bg-gradient-to-b from-base-100 via-base-300 to-base-100 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-3">
+      <div className="content-center justify-self-center mt-4">
         <AvatarPortrait3 />
       </div>
-      <div className="content-center justify-self-center mx-2 bg-inherit">
+      <div className="content-center justify-self-center bg-inherit mx-2 ">
         <MockupCode content={content} />
       </div>
-      <article className="content-center justify-self-center mx-2 bg-inherit border border-primary-content p-6 rounded-lg mb-3">
+      <article className="card content-center justify-self-center bg-inherit border border-primary-content mx-2  p-6 rounded-lg mb-3">
         <h2 className="text-3xl mb-2">Resume</h2>
-        <p className="prose lg:prose-xl">
-          Estudiante de desarrollo web full-stack, administrador gastronómico
-          con 8 años de experiencia. Me enfoco principalmente en las tecnologías
-          y lenguajes más demandadas del desarrollo web como lo son HTML, CSS y
-          Javascript. Busco crear interfaces visuales únicas con React, Tailwind
-          y librerias UI que entreguen una gran experiencia al usuario. Tengo
-          conocimientos en Java para la construcción de APIS en Springboot y
-          técnicas de prompting con Python. Me considero apasionado, responsable
-          y autodidacta. Me adapto facilmente a entornos colaborativos para
-          resolver requerimientos del dia a dia. Espero con muchas ansias
-          trabajar y construir software de calidad siempre usando las ultimas
-          tendencias del desarrollo web.
-        </p>
+        <p className="prose lg:prose-xl">{content.resume}</p>
       </article>
-      <article className="place-content-start mx-2 bg-inherit border border-primary-content p-6 rounded-lg mb-3">
-        <h2 className="text-3xl mb-3">Certificados</h2>
+      <article className="card place-content-start bg-inherit border border-primary-content mx-2 p-6 rounded-lg mb-4">
+        <h2 className="text-3xl mb-3">{content.certificationsTitle}</h2>
         <ul>
           <li>
-            <button className="btn btn-outline w-full my-1">React</button>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document.getElementById("React-certificate").showModal()
+              }
+            >
+              React
+            </button>
+            <Modal content={content} />
           </li>
           <li>
-            <button className="btn btn-outline w-full my-1">Java</button>
-          </li>
-          <li>
-            <button className="btn btn-outline w-full my-1">Ingles</button>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document.getElementById("Java-certificate").showModal()
+              }
+            >
+              Java
+            </button>
+            <Modal content={content} />
           </li>
         </ul>
-        <h2 className="text-3xl mb-2  mt-3">Recomendaciones</h2>
+        <h2 className="text-3xl mb-2 mt-3">{content.recommendationsTitle}</h2>
+        <AvatarPortrait4 />
+        <p className="prose lg:prose-xl">{content.recommendationsText}</p>
       </article>
+      <div className="col-start-1 col-end-2 sm:col-end-3 content-center justify-items-center">
+        <AvatarPortrait5 />
+        <h2 className="text-2xl text-center sm:text-3xl mb-2">
+          {content.lastTitle}
+        </h2>
+        <Link to={"/Skills"} className="btn btn-primary btn-wide my-3">
+          {content.lastButton}
+        </Link>
+      </div>
     </section>
   );
 };
