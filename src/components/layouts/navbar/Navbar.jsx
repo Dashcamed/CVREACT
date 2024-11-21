@@ -39,7 +39,9 @@ const Navbar = ({ content }) => {
               </Link>
             </li>
             <li>
-              <a className="text-lg font-semibold">{content.nav3}</a>
+              <Link className="text-lg font-semibold" to={"/Contact"}>
+                {content.nav3}
+              </Link>
             </li>
           </ul>
         </div>
@@ -60,7 +62,9 @@ const Navbar = ({ content }) => {
             </Link>
           </li>
           <li>
-            <a className="text-lg font-semibold">{content.nav3}</a>
+            <Link className="text-lg font-semibold" to={"/Contact"}>
+              {content.nav3}
+            </Link>
           </li>
         </ul>
       </div>
