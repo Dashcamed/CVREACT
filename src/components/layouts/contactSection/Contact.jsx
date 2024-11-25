@@ -3,8 +3,17 @@ import AvatarPortrait6 from "../../common/avatars/AvatarPortrait6";
 import CopyToClipboard from "react-copy-to-clipboard";
 import AvatarPortrait4 from "../../common/avatars/AvatarPortrait4";
 import { Link } from "react-router-dom";
+import { useAlert } from "../../../context/AlertContext";
 
-const Contact = ({ messageId, handleSubmit, onSubmit, register, errors }) => {
+const Contact = ({
+  messageId,
+  handleSubmit,
+  onSubmit,
+  register,
+  errors,
+  content,
+}) => {
+  const { showAlert } = useAlert();
   return (
     <>
       {messageId ? (
@@ -12,58 +21,82 @@ const Contact = ({ messageId, handleSubmit, onSubmit, register, errors }) => {
           <div className="mx-2 justify-items-center">
             <AvatarPortrait4 />
             <p className="text-center prose lg:prose-xl mb-3">
-              Solicitud enviada, me pondré en contacto contigo a la brevedad.
+              {content.response.text1}
             </p>
             <p className="text-center prose lg:prose-xl">
-              Este es el identificador de tu solicitud, has click para guardar
-              en el portapapeles.
+              {content.response.text2}
             </p>
             <CopyToClipboard text={messageId}>
-              <p className="text-center prose lg:prose-xl underline hover:cursor-pointer">
+              <p
+                onClick={() => showAlert("Copied", "success")}
+                className="text-center prose lg:prose-xl underline hover:cursor-pointer"
+              >
                 {messageId}
               </p>
             </CopyToClipboard>
             <Link to={"/"} className="btn btn-accent btn-wide mt-10">
-              Back to home
+              {content.response.linkButton}
             </Link>
           </div>
         </div>
       ) : (
         <div className="h-dvh grid grid-cols-1 content-start justify-items-center">
           <AvatarPortrait6 />
-          <h2 className="text-3xl mb-4 mt-3">Contact me</h2>
+          <h2 className="text-3xl mb-4 mt-3">{content.contactTitle}</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="mx-2">
-            <input
-              type="text"
-              placeholder="Name"
-              className="input input-bordered w-full mb-1"
-              {...register("name", {
-                required: "Required",
-                maxLength: { value: 50, message: "Máximo 50 caracteres" },
-                pattern: {
-                  value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/,
-                  message: "Solo letras y espacios",
-                },
-              })}
-            />
-            {errors.name && (
-              <p className="text-warning text-sm mt-1">{errors.name.message}</p>
-            )}
-            <input
-              type="text"
-              placeholder="Number"
-              className="input input-bordered w-full mb-1"
-              {...register("phone", {
-                required: "Required",
-                pattern: { value: /^[0-9]+$/, message: "Solo números" },
-              })}
-            />
-            {errors.phone && (
-              <p className="text-warning text-sm mt-1">
-                {errors.phone.message}
-              </p>
-            )}
-            <label className="input input-bordered flex items-center gap-2 w-full mb-1">
+            <label className="input input-bordered flex items-center mb-2 gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-5 w-5 opacity-70"
+              >
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+              </svg>
+              <input
+                type="text"
+                placeholder={content.formName.name}
+                className="grow"
+                {...register("name", {
+                  required: "Required",
+                  maxLength: { value: 50, message: "50 characters maximium" },
+                  pattern: {
+                    value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/,
+                    message: "Only letters and spaces",
+                  },
+                })}
+              />
+              {errors.name && (
+                <p className="text-warning text-sm mt-1">
+                  {errors.name.message}
+                </p>
+              )}
+            </label>
+            <label className="input input-bordered flex items-center mb-2 gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-5 w-5 opacity-70"
+              >
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+              </svg>
+              <input
+                type="text"
+                placeholder={content.formNumber.number}
+                className="grow"
+                {...register("phone", {
+                  required: "Required",
+                  pattern: { value: /^[0-9]+$/, message: "Only numbers" },
+                })}
+              />
+              {errors.phone && (
+                <p className="text-warning text-sm mt-1">
+                  {errors.phone.message}
+                </p>
+              )}
+            </label>
+            <label className="input input-bordered flex items-center gap-2 mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -76,7 +109,7 @@ const Contact = ({ messageId, handleSubmit, onSubmit, register, errors }) => {
               <input
                 type="text"
                 className="grow"
-                placeholder="Email"
+                placeholder={content.formEmail.email}
                 {...register("email", {
                   required: "Required",
                   pattern: {
@@ -94,7 +127,7 @@ const Contact = ({ messageId, handleSubmit, onSubmit, register, errors }) => {
             <textarea
               type="text"
               className="textarea textarea-bordered w-full"
-              placeholder="Write Here"
+              placeholder={content.formText.textArea}
               {...register("text", {
                 required: "Required",
                 maxLength: { value: 200, message: "Max 200 characters" },
@@ -105,10 +138,14 @@ const Contact = ({ messageId, handleSubmit, onSubmit, register, errors }) => {
               })}
             ></textarea>
             {errors.text && (
-              <p className="text-warning text-sm mt-1">{errors.text.message}</p>
+              <p className="text-warning text-end text-sm">
+                {errors.text.message}
+              </p>
             )}
-            <div className="flex justify-end">
-              <button className="btn btn-success">Send</button>
+            <div className="flex justify-end mt-2">
+              <button className="btn btn-success">
+                {content.submitButton}
+              </button>
             </div>
           </form>
         </div>

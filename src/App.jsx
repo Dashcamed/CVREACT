@@ -6,19 +6,22 @@ import SkillsPage from "./components/pages/skills/SkillsPage";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import ContactPage from "./components/pages/contact/ContactPage";
+import { AlertProvider } from "./context/AlertContext";
 
 function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <NavbarContainer />
-        <Routes>
-          <Route path={"/"} element={<HomePage />}></Route>
-          <Route path={"/About"} element={<AboutPage />}></Route>
-          <Route path={"/Skills"} element={<SkillsPage />}></Route>
-          <Route path={"/Contact"} element={<ContactPage />}></Route>
-        </Routes>
-        <FooterContainer />
+        <AlertProvider>
+          <NavbarContainer />
+          <Routes>
+            <Route path={"/"} element={<HomePage />}></Route>
+            <Route path={"/About"} element={<AboutPage />}></Route>
+            <Route path={"/Skills"} element={<SkillsPage />}></Route>
+            <Route path={"/Contact"} element={<ContactPage />}></Route>
+          </Routes>
+          <FooterContainer />
+        </AlertProvider>
       </BrowserRouter>
     </LanguageProvider>
   );

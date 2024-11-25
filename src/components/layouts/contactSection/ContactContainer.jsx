@@ -1,18 +1,34 @@
 import Contact from "./Contact";
 import { useForm } from "react-hook-form";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../configFirebase";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLanguage } from "../../../context/LanguageContext";
 import LoadingPage from "../../pages/loadingPage/LoadingPage";
 
 const ContactContainer = () => {
+  const { language } = useLanguage();
+  const [content, setContent] = useState(null);
+  const [messageId, setMessageId] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const docRef = doc(db, "pages", "contact");
+      const docSnapshot = await getDoc(docRef);
+
+      if (docSnapshot.exists()) {
+        setContent(docSnapshot.data()[language]);
+      }
+    };
+    fetchContent();
+  }, [language]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [messageId, setMessageId] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = (data) => {
     setIsLoading(true);
@@ -37,11 +53,12 @@ const ContactContainer = () => {
       });
   };
 
-  if (isLoading) {
+  if (isLoading || !content) {
     return <LoadingPage />;
   }
 
   let childProps = {
+    content,
     messageId,
     handleSubmit,
     onSubmit,
