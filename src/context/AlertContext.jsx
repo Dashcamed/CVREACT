@@ -20,7 +20,7 @@ export const AlertProvider = ({ children }) => {
     // Oculta la alerta automáticamente después de 3 segundos
     setTimeout(() => {
       setAlertData({ ...alertData, visible: false });
-    }, 5000);
+    }, 3000);
   };
 
   return (
