@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 
 const About = ({ content }) => {
   return (
-    <section className="h-fit bg-gradient-to-b from-base-100 via-base-300 to-base-100 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-3">
-      <div className="content-center justify-self-center mt-4">
+    <section className="h-fit bg-gradient-to-b from-base-100 via-base-300 to-base-100 grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 gap-3 transition ease-in-out animate-fade-in">
+      <article className="content-center justify-self-center mt-4">
         <AvatarPortrait3 />
-      </div>
-      <div className="content-center justify-self-center bg-inherit mx-2 ">
+      </article>
+      <article className="content-center justify-self-center bg-inherit mx-2 ">
         <MockupCode content={content} />
-      </div>
-      <article className="card content-center justify-self-center bg-inherit border border-primary-content mx-2  p-6 rounded-lg mb-3">
+      </article>
+      <article className="card content-center justify-self-center bg-inherit border border-primary-content mx-2 p-6 rounded-lg mb-3">
         <h2 className="text-3xl mb-2">Resume</h2>
         <p className="prose lg:prose-xl">{content.resume}</p>
       </article>

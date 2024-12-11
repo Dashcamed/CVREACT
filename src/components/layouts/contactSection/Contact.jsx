@@ -17,7 +17,7 @@ const Contact = ({
   return (
     <>
       {messageId ? (
-        <div className="h-dvh sm:h-fit grid grid-cols-1 content-center justify-items-center mb-3">
+        <section className="h-dvh sm:h-fit grid grid-cols-1 content-center justify-items-center mb-3">
           <div className="mx-2 justify-items-center">
             <AvatarPortrait4 />
             <p className="text-center prose lg:prose-xl mb-3">
@@ -38,9 +38,9 @@ const Contact = ({
               {content.response.linkButton}
             </Link>
           </div>
-        </div>
+        </section>
       ) : (
-        <div className="h-dvh sm:h-fit grid grid-cols-1 content-start justify-items-center mb-3">
+        <section className="h-dvh sm:h-fit grid grid-cols-1 content-start justify-items-center mb-3 transition ease-in-out animate-fade-in">
           <AvatarPortrait6 />
           <h2 className="text-3xl mb-4 mt-3">{content.contactTitle}</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="mx-2">
@@ -148,7 +148,7 @@ const Contact = ({
               </button>
             </div>
           </form>
-        </div>
+        </section>
       )}
     </>
   );
