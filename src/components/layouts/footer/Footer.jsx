@@ -1,21 +1,43 @@
 import React from "react";
 
-const Footer = ({ links }) => {
+const Footer = ({ content }) => {
   return (
     <footer className="footer footer-center bg-primary text-primary-content p-10">
       <aside>
-        <p className="font-bold">Creada con ❤️ por Camilo Medina</p>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+        <p className="font-bold">{content.footerText1}</p>
+        <p>
+          {content.footerText2} {new Date().getFullYear()} {content.footerText3}
+        </p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          {links.map((link) => (
-            <button key={link.title} className="btn btn-ghost p-0">
-              <a href={link.url} target="_blank">
-                <img src={link.imgUrl} alt={link.title} className="h-12" />
-              </a>
-            </button>
-          ))}
+          <button className="btn btn-ghost p-0">
+            <a href={content.instagramUrl} target="_blank">
+              <img
+                src={content.instagramLogo}
+                alt={content.instagramTitle}
+                className="h-12"
+              />
+            </a>
+          </button>
+          <button className="btn btn-ghost p-0">
+            <a href={content.githubUrl} target="_blank">
+              <img
+                src={content.githubLogo}
+                alt={content.githubTitle}
+                className="h-12"
+              />
+            </a>
+          </button>
+          <button className="btn btn-ghost p-0">
+            <a href={content.linkedinUrl} target="_blank">
+              <img
+                src={content.linkedinLogo}
+                alt={content.linkedinTitle}
+                className="h-12"
+              />
+            </a>
+          </button>
         </div>
       </nav>
     </footer>

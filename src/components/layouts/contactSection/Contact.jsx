@@ -42,9 +42,12 @@ const Contact = ({
       ) : (
         <section className="h-dvh sm:h-fit grid grid-cols-1 content-start justify-items-center mb-3 transition ease-in-out animate-fade-in">
           <AvatarPortrait6 />
-          <h2 className="text-3xl mb-4 mt-3">{content.contactTitle}</h2>
+          <h2 className="text-3xl mb-2 mt-2">{content.contactTitle}</h2>
+          <p className="text-center prose lg:prose-xl mb-1 mx-2">
+            {content.contactText1}
+          </p>
           <form onSubmit={handleSubmit(onSubmit)} className="mx-2">
-            <label className="input input-bordered flex items-center mb-2 gap-2">
+            <label className="input input-bordered flex items-center mb-2 gap-2 w-80">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"

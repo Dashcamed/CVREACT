@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import { footerLinks } from "./footerLinks";
+import { useLanguage } from "../../../context/LanguageContext";
+import { db } from "../../../configFirebase";
+import { doc, getDoc } from "firebase/firestore";
+import LoadingPage from "../../pages/loadingPage/LoadingPage";
 
 const FooterContainer = () => {
-  const [links, setLinks] = useState([]);
+  const { language } = useLanguage();
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
-    const getLinks = new Promise((res, rej) => {
-      let isLoged = true;
-      if (isLoged) {
-        res({ footerLinks });
-      } else {
-        rej({ message: "error" });
-      }
-    });
-    getLinks
-      .then((response) => {
-        setLinks(response.footerLinks);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }, []);
+    const fetchContent = async () => {
+      const docRef = doc(db, "pages", "footer");
+      const docSnapshot = await getDoc(docRef);
 
-  return <Footer links={links} />;
+      if (docSnapshot.exists()) {
+        setContent(docSnapshot.data()[language]);
+      }
+    };
+    fetchContent();
+  }, [language]);
+
+  if (!content) {
+    return <LoadingPage />;
+  }
+
+  return <Footer content={content} />;
 };
 
 export default FooterContainer;
