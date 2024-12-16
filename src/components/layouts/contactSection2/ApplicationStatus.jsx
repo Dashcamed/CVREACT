@@ -10,9 +10,9 @@ const applicationStatus = ({
 }) => {
   return (
     <section className="h-dvh sm:h-fit grid grid-cols-1 content-start justify-items-center mb-3">
-      <h2 className="text-3xl mb-2 mt-2">Application Status</h2>
+      <h2 className="text-3xl mb-6 mt-2">Application Status</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 mb-6">
           <input
             type="text"
             className="grow"
@@ -50,8 +50,7 @@ const applicationStatus = ({
             Id de tu solicitud:{messageId}
           </p>
           <p className="text-center prose lg:prose-xl mb-1 mx-2">
-            Hola {messageBody.client.name}, tu solicitud:{" "}
-            {messageBody.client.statusChecked}
+            Hola {messageBody.client.name},{messageBody.client.status}
           </p>
         </section>
       ) : (

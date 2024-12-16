@@ -33,6 +33,7 @@ const ApplicationStatusContainer = () => {
         setMessageBody(doc.data());
       } else {
         setMessageId(null);
+        setMessageBody(null);
       }
     } catch (error) {
       console.error("Error fetching documents: ", error);
