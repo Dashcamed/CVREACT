@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        Outfit: ["Outfit"],
+      },
       animation: {
         "fade-in": "fadeIn 0.75s ease-out",
       },

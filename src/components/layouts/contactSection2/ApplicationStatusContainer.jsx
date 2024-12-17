@@ -1,15 +1,38 @@
 import React from "react";
-import ApplicationStatus from "./ApplicationStatus.jsx";
+import ApplicationStatus from "./applicationStatus.jsx";
 import { useForm } from "react-hook-form";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../../../configFirebase";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoadingPage from "../../pages/loadingPage/LoadingPage.jsx";
+import { useLanguage } from "../../../context/LanguageContext.jsx";
 
 const ApplicationStatusContainer = () => {
+  const { language } = useLanguage();
+  const [content, setContent] = useState(null);
   const [messageId, setMessageId] = useState(null);
   const [messageBody, setMessageBody] = useState(null);
+  const [messageStatus, setMessageStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const docRef = doc(db, "pages", "applicationStatus");
+      const docSnapshot = await getDoc(docRef);
+
+      if (docSnapshot.exists()) {
+        setContent(docSnapshot.data()[language]);
+      }
+    };
+    fetchContent();
+  }, [language]);
 
   const {
     register,
@@ -31,6 +54,7 @@ const ApplicationStatusContainer = () => {
         const doc = querySnapshot.docs[0];
         setMessageId(doc.id);
         setMessageBody(doc.data());
+        setMessageStatus(doc.data().status);
       } else {
         setMessageId(null);
         setMessageBody(null);
@@ -39,16 +63,19 @@ const ApplicationStatusContainer = () => {
       console.error("Error fetching documents: ", error);
       setMessageId(null);
       setMessageBody(null);
+      setMessageStatus(null);
     } finally {
       setIsLoading(false);
     }
   };
-  if (isLoading) {
+  if (isLoading || !content) {
     return <LoadingPage />;
   }
   let childProps = {
+    content,
     messageId,
     messageBody,
+    messageStatus,
     handleSubmit,
     onSubmit,
     register,

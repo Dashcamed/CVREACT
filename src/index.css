@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Outfit";
+  src: local("./Outfit-ExtraLight.ttf"),
+    url("./Outfit-ExtraLight.ttf") format("trueType");
+}
+
+* {
+  font-family: "Outfit";
+  font-weight: 500;
+}
