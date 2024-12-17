@@ -35,6 +35,7 @@ const ContactContainer = () => {
 
     const contactMessage = {
       client: data,
+      status: false,
     };
 
     if (!data) {

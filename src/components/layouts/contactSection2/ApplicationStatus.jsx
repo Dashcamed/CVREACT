@@ -1,8 +1,10 @@
 import React from "react";
 
-const applicationStatus = ({
+const ApplicationStatus = ({
+  content,
   messageId,
   messageBody,
+  messageStatus,
   handleSubmit,
   onSubmit,
   register,
@@ -10,13 +12,13 @@ const applicationStatus = ({
 }) => {
   return (
     <section className="h-dvh sm:h-fit grid grid-cols-1 content-start justify-items-center mb-3">
-      <h2 className="text-3xl mb-6 mt-2">Application Status</h2>
+      <h2 className="text-3xl mb-6 mt-2">{content.applicationTitle}</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label className="input input-bordered flex items-center gap-2 mb-6">
           <input
             type="text"
             className="grow"
-            placeholder="Write your email"
+            placeholder={content.applicationInput}
             {...register("email", {
               required: "Required",
               pattern: {
@@ -44,22 +46,33 @@ const applicationStatus = ({
           </button>
         </label>
       </form>
+
       {messageId ? (
         <section className="h-dvh sm:h-fit grid grid-cols-1 content-start justify-items-center mb-3">
           <p className="text-center prose lg:prose-xl mb-1 mx-2">
-            Id de tu solicitud:{messageId}
+            {content.applicationId} {messageId}
           </p>
           <p className="text-center prose lg:prose-xl mb-1 mx-2">
-            Hola {messageBody.client.name},{messageBody.client.status}
+            {content.applicationName} {messageBody?.client?.name || "Cliente"}
           </p>
+
+          {messageStatus === false ? (
+            <p className="text-center prose lg:prose-xl mb-1 mx-2">
+              {content.applicationFalse}
+            </p>
+          ) : (
+            <p className="text-center prose lg:prose-xl mb-1 mx-2">
+              {content.applicationTrue}
+            </p>
+          )}
         </section>
       ) : (
         <p className="text-center prose lg:prose-xl mb-1 mx-2">
-          Check the application Status
+          {content.applicationText1}
         </p>
       )}
     </section>
   );
 };
 
-export default applicationStatus;
+export default ApplicationStatus;

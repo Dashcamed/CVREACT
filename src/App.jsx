@@ -3,6 +3,7 @@ import FooterContainer from "./components/layouts/footer/FooterContainer";
 import AboutPage from "./components/pages/about/AboutPage";
 import HomePage from "./components/pages/homeContainer/HomePage";
 import SkillsPage from "./components/pages/skills/SkillsPage";
+import Page404 from "./components/pages/404/Page404";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import ContactPage from "./components/pages/contact/ContactPage";
@@ -19,6 +20,7 @@ function App() {
             <Route path={"/About"} element={<AboutPage />}></Route>
             <Route path={"/Skills"} element={<SkillsPage />}></Route>
             <Route path={"/Contact"} element={<ContactPage />}></Route>
+            <Route path={"*"} element={<Page404 />} />
           </Routes>
           <FooterContainer />
         </AlertProvider>
