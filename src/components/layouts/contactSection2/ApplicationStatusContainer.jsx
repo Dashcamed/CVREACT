@@ -1,5 +1,5 @@
 import React from "react";
-import ApplicationStatus from "./applicationStatus.jsx";
+import ApplicationStatus from "./ApplicationStatus.jsx";
 import { useForm } from "react-hook-form";
 import {
   collection,
