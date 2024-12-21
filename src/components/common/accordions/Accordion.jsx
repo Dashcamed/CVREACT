@@ -1,30 +1,26 @@
 import React from "react";
 
+const AccordionItem = ({ item }) => (
+  <div className="collapse collapse-plus bg-inherit mb-3">
+    <input type="radio" />
+    <input type="checkbox" />
+    <div className="collapse-title text-xl xl:text-3xl font-medium">
+      {item.h1}
+    </div>
+    <div className="collapse-content">
+      <p className="text-lg xl:text-xl">- {item.text}</p>
+      <p className="text-lg xl:text-xl">- {item.text2}</p>
+    </div>
+  </div>
+);
+
 const Accordion = ({ content }) => {
+  const items = [content.accordion1, content.accordion2];
   return (
     <>
-      <div className="collapse collapse-plus bg-inherit mb-3">
-        <input type="radio" />
-        <input type="checkbox" />
-        <div className="collapse-title text-xl xl:text-3xl font-medium">
-          {content.accordion1.h1}
-        </div>
-        <div className="collapse-content">
-          <p className="text-lg xl:text-xl">- {content.accordion1.text}</p>
-          <p className="text-lg xl:text-xl">- {content.accordion1.text2}</p>
-        </div>
-      </div>
-      <div className="collapse collapse-plus bg-inherit mb-3">
-        <input type="radio" />
-        <input type="checkbox" />
-        <div className="collapse-title text-xl xl:text-3xl font-medium">
-          {content.accordion2.h1}
-        </div>
-        <div className="collapse-content">
-          <p className="text-lg xl:text-xl">- {content.accordion2.text}</p>
-          <p className="text-lg xl:text-xl">- {content.accordion2.text2}</p>
-        </div>
-      </div>
+      {items.map((item, index) => (
+        <AccordionItem key={index} item={item} />
+      ))}
     </>
   );
 };
