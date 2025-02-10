@@ -55,6 +55,28 @@ const About = ({ content }) => {
             </button>
             <Modal content={content} />
           </li>
+          <li>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document.getElementById("Next-certificate").showModal()
+              }
+            >
+              Next
+            </button>
+            <Modal content={content} />
+          </li>
+          <li>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document.getElementById("React-Gob-certificate").showModal()
+              }
+            >
+              React Gob
+            </button>
+            <Modal content={content} />
+          </li>
         </ul>
         <h2 className="text-3xl mb-2 mt-3">{content.recommendationsTitle}</h2>
         <AvatarPortrait4 />

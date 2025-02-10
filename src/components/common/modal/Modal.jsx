@@ -33,6 +33,26 @@ const Modal = ({ content }) => {
           </div>
         </div>
       </dialog>
+      <dialog id="Next-certificate" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <img src={content.nextDoc} alt="english-certificate" />
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      <dialog id="React-Gob-certificate" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <img src={content.reactGobDoc} alt="english-certificate" />
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </>
   );
 };
