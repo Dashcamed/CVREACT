@@ -29,7 +29,12 @@ const AccordionItem = ({ item }) => (
 );
 
 const AccordionProyects = ({ content }) => {
-  const items = [content.accordion3, content.accordion4, content.accordion5];
+  const items = [
+    content.accordion3,
+    content.accordion4,
+    content.accordion5,
+    content.accordion6,
+  ];
 
   return (
     <>
