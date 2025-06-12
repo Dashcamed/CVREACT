@@ -77,6 +77,41 @@ const About = ({ content }) => {
             </button>
             <Modal content={content} />
           </li>
+          <li>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document.getElementById("Backend1-certificate").showModal()
+              }
+            >
+              Backend 1
+            </button>
+            <Modal content={content} />
+          </li>
+          <li>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document.getElementById("Backend2-certificate").showModal()
+              }
+            >
+              Backend 2
+            </button>
+            <Modal content={content} />
+          </li>
+          <li>
+            <button
+              className="btn btn-outline w-full my-1"
+              onClick={() =>
+                document
+                  .getElementById("Prompt-developers-certificate")
+                  .showModal()
+              }
+            >
+              Prompt Developers
+            </button>
+            <Modal content={content} />
+          </li>
         </ul>
         <h2 className="text-3xl mb-2 mt-3">{content.recommendationsTitle}</h2>
         <AvatarPortrait4 />
