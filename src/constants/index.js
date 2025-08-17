@@ -33,3 +33,21 @@ export const logoIconList = [
       "https://res.cloudinary.com/dpisx0ysb/image/upload/v1737161718/logoPanaderia_limgcq.svg",
   },
 ];
+
+export const abilities = [
+  {
+    title: "Calidad",
+    imgPath: "/images/seo.png",
+    desc: "Me centro en la calidad de mis proyectos",
+  },
+  {
+    title: "Comunicación",
+    imgPath: "/images/chat.png",
+    desc: "Me centro en la calidad de mis proyectos",
+  },
+  {
+    title: "Tiempo",
+    imgPath: "/images/time.png",
+    desc: "Desarrollo con herramientas probadas y que facilitan el desarrollo para ahorrar tiempo",
+  },
+];
