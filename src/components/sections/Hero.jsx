@@ -51,11 +51,11 @@ const Hero = () => {
                 </span>
               </h1>
               <h1>En proyectos reales</h1>
-              <h1>Que entregan resultados</h1>
+              <h1>Para los desafios actuales</h1>
             </div>
             <p className="text-white-50 text-xl md:text-xl relative z-10 pointer-events-none">
-              Hola! soy Camilo, desarrollador web fullstack en Chile, apasionado
-              y dedicado.
+              Hola! soy Camilo, desarrollador web fullstack en Chile,
+              apasionado, dedicado y autodidacta.
             </p>
             <Button
               className="md:w-80 md:h-16 w-60 h-14"
