@@ -51,3 +51,43 @@ export const abilities = [
     desc: "Desarrollo con herramientas probadas y que facilitan el desarrollo para ahorrar tiempo",
   },
 ];
+
+export const expCards = [
+  {
+    review:
+      "Lideré el equipo de pasteleria y propuse nuevos flujos de trabajo, diseñé una aplicacion para el seguimiento de la producción con informes.",
+    imgPath:
+      "https://res.cloudinary.com/dpisx0ysb/image/upload/v1741570802/logofornaio_hqicoj.png",
+    title: "Jefe de pasteleria",
+    date: "Agosto 2024 - Presente",
+    responsabilities: [
+      "Dirigir grupo de trabajo",
+      "Horarios y diseño de esquemas de trabajo",
+      "Pedidos, informes y otros",
+    ],
+  },
+  {
+    review:
+      "Lideré el equipo de pasteleria y propuse nuevos flujos de trabajo, diseñé una aplicacion para el seguimiento de la producción con informes.",
+    imgPath: "/images/exp1.png",
+    title: "Jefe de pasteleria",
+    date: "Agosto 2024 - Presente",
+    responsabilities: [
+      "Dirigir grupo de trabajo",
+      "Horarios y diseño de esquemas de trabajo",
+      "Pedidos, informes y otros",
+    ],
+  },
+  {
+    review:
+      "Lideré el equipo de pasteleria y propuse nuevos flujos de trabajo, diseñé una aplicacion para el seguimiento de la producción con informes.",
+    imgPath: "/images/exp1.png",
+    title: "Jefe de pasteleria",
+    date: "Agosto 2024 - Presente",
+    responsabilities: [
+      "Dirigir grupo de trabajo",
+      "Horarios y diseño de esquemas de trabajo",
+      "Pedidos, informes y otros",
+    ],
+  },
+];
