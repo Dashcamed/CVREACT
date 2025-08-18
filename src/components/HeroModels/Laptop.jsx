@@ -7,7 +7,6 @@ Source: https://sketchfab.com/3d-models/cyberpunk-laptop-concept-design-fddc4e68
 Title: CyberPunk Laptop Concept Design
 */
 
-import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Laptop(props) {

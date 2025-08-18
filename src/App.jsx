@@ -4,6 +4,8 @@ import NavBar from "./components/NavBar";
 import LogoSection from "./components/sections/LogoSection";
 import FeatureCards from "./components/sections/FeatureCards";
 import ExperienceSection from "./components/sections/ExperienceSection";
+import TechStack from "./components/sections/TechStack";
+import Testimonials from "./components/sections/Testimonials";
 function App() {
   return (
     <>
@@ -14,6 +16,8 @@ function App() {
         <LogoSection />
         <FeatureCards />
         <ExperienceSection />
+        <TechStack />
+        <Testimonials />
       </main>
     </>
   );
