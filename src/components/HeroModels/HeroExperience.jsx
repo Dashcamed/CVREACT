@@ -1,15 +1,25 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import React from "react";
+import React, { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Laptop } from "./Laptop";
+import { CyberPunk } from "../Models/CyberPunk/Cyberpunk_laptop_concept_design";
 import HeroLights from "./HeroLights";
+import { Html, useProgress } from "@react-three/drei";
 
 const HeroExperience = () => {
+  function Loader() {
+    const { progress } = useProgress();
+    return <Html center>{progress.toFixed(0)} % loaded</Html>;
+  }
+
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+    <Canvas
+      camera={{ position: [0, 0, 10], fov: 45 }}
+      dpr={[1, 1, 5]}
+      gl={{ antialias: false }}
+    >
       <OrbitControls
         enablePan={false}
         enableZoom={!isTablet}
@@ -24,7 +34,9 @@ const HeroExperience = () => {
         position={[0, -40, 0]}
         rotation={[Math.PI / 21, -Math.PI / 6, 0]}
       >
-        <Laptop />
+        <Suspense fallback={<Loader />}>
+          <CyberPunk />
+        </Suspense>
       </group>
     </Canvas>
   );
