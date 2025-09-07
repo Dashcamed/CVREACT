@@ -51,11 +51,13 @@ const ShowcaseSection = () => {
           {/* left */}
           <div className="first-project-wrapper" ref={project1Ref}>
             <div className="image-wrapper">
-              <img
-                src="https://res.cloudinary.com/dpisx0ysb/image/upload/v1755362358/Screenshot_2025-08-16_123445_iy9wkk.png"
-                alt="LaFikaPanaderia"
-                className="object-contain"
-              />
+              <a href="https://www.lafikapanaderia.cl/" target="_blank">
+                <img
+                  src="https://res.cloudinary.com/dpisx0ysb/image/upload/v1755362358/Screenshot_2025-08-16_123445_iy9wkk.png"
+                  alt="LaFikaPanaderia"
+                  className="object-contain"
+                />
+              </a>
             </div>
             <div className="text-content">
               <h2>Ecommerce web-app La Fika Panaderia</h2>
@@ -70,10 +72,12 @@ const ShowcaseSection = () => {
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={project2Ref}>
               <div className="image-wrapper bg-[#ffefdb]">
-                <img
-                  src="https://res.cloudinary.com/dpisx0ysb/image/upload/v1755387928/Screenshot_2025-08-16_194515_akkjwr.png"
-                  alt="Generador de rutinas de gimnasio"
-                />
+                <a href="https://aironfit.streamlit.app/" target="_blank">
+                  <img
+                    src="https://res.cloudinary.com/dpisx0ysb/image/upload/v1755387928/Screenshot_2025-08-16_194515_akkjwr.png"
+                    alt="Generador de rutinas de gimnasio"
+                  />
+                </a>
               </div>
               <h2>Generador de rutinas de gimnasio</h2>
             </div>
@@ -81,10 +85,15 @@ const ShowcaseSection = () => {
           <div className="project-list-wrapper overflow-hidden">
             <div className="project" ref={project3Ref}>
               <div className="image-wrapper bg-[#ffe7db]">
-                <img
-                  src="https://res.cloudinary.com/dpisx0ysb/image/upload/v1755365210/Screenshot_2025-08-16_132639_xoouzf.png"
-                  alt="API de Adopciones de mascotas"
-                />
+                <a
+                  href="https://github.com/Dashcamed/entregaFinalB3"
+                  target="_blank"
+                >
+                  <img
+                    src="https://res.cloudinary.com/dpisx0ysb/image/upload/v1755365210/Screenshot_2025-08-16_132639_xoouzf.png"
+                    alt="API de Adopciones de mascotas"
+                  />
+                </a>
               </div>
               <h2>API de Adopciones de mascotas</h2>
             </div>
