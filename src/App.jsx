@@ -1,31 +1,29 @@
-import NavbarContainer from "./components/layouts/navbar/NavbarContainer";
-import FooterContainer from "./components/layouts/footer/FooterContainer";
-import AboutPage from "./components/pages/about/AboutPage";
-import HomePage from "./components/pages/homeContainer/HomePage";
-import SkillsPage from "./components/pages/skills/SkillsPage";
-import Page404 from "./components/pages/404/Page404";
-import { Routes, BrowserRouter, Route } from "react-router-dom";
-import { LanguageProvider } from "./context/LanguageContext";
-import ContactPage from "./components/pages/contact/ContactPage";
-import { AlertProvider } from "./context/AlertContext";
-
+import Hero from "./components/sections/Hero";
+import ShowcaseSection from "./components/sections/ShowcaseSection";
+import NavBar from "./components/NavBar";
+import LogoSection from "./components/sections/LogoSection";
+import FeatureCards from "./components/sections/FeatureCards";
+import ExperienceSection from "./components/sections/ExperienceSection";
+import TechStack from "./components/sections/TechStack";
+import Testimonials from "./components/sections/Testimonials";
+import ContactSection from "./components/sections/ContactSection";
+import Footer from "./components/sections/Footer";
 function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <AlertProvider>
-          <NavbarContainer />
-          <Routes>
-            <Route path={"/"} element={<HomePage />}></Route>
-            <Route path={"/About"} element={<AboutPage />}></Route>
-            <Route path={"/Skills"} element={<SkillsPage />}></Route>
-            <Route path={"/Contact"} element={<ContactPage />}></Route>
-            <Route path={"*"} element={<Page404 />} />
-          </Routes>
-          <FooterContainer />
-        </AlertProvider>
-      </BrowserRouter>
-    </LanguageProvider>
+    <>
+      <NavBar />
+      <main>
+        <Hero />
+        <ShowcaseSection />
+        <LogoSection />
+        <FeatureCards />
+        <ExperienceSection />
+        <TechStack />
+        <Testimonials />
+        <ContactSection />
+        <Footer />
+      </main>
+    </>
   );
 }
 
