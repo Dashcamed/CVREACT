@@ -45,7 +45,7 @@ const ContactSection = () => {
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="Escríbeme – Conectémos"
-          sub="💬 Alguna idea en mente? Hamblémos! 🚀"
+          sub="💬 Alguna idea en mente? Hablémos! 🚀"
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
