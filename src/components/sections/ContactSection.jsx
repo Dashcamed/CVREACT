@@ -97,9 +97,7 @@ const ContactSection = () => {
                 <button type="submit" disabled={loading}>
                   <div className="cta-button group">
                     <div className="bg-circle" />
-                    <p className="text">
-                      {loading ? "Enviando..." : "Enviar Mensaje"}
-                    </p>
+                    <p className="text">{loading ? "Enviando..." : "Enviar"}</p>
                     <div className="arrow-wrapper">
                       <img src="/images/arrow-down.svg" alt="arrow" />
                     </div>

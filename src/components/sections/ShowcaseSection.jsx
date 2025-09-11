@@ -80,6 +80,10 @@ const ShowcaseSection = () => {
                 </a>
               </div>
               <h2>Generador de rutinas de gimnasio</h2>
+              <p className="text-white-50 md:text-xl">
+                Proyecto con IA generativa usando Python y streamlit. Usa la API
+                de Gemini para generar una rutina personalizada de gimnasio.
+              </p>
             </div>
           </div>
           <div className="project-list-wrapper overflow-hidden">
@@ -96,6 +100,10 @@ const ShowcaseSection = () => {
                 </a>
               </div>
               <h2>API de Adopciones de mascotas</h2>
+              <p className="text-white-50 md:text-xl">
+                API REST con NodeJs, Express y MongoDB para portal de adopción
+                de mascotas. Usa autenticación JWT y Passport.
+              </p>
             </div>
           </div>
         </div>
